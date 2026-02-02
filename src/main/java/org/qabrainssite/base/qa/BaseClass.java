@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -39,7 +40,12 @@ public class BaseClass {
 		String url=properties.getProperty("url");
 		
 		if(browser.equals("chrome")) {
-			driver=new ChromeDriver();
+			ChromeOptions co=new ChromeOptions();
+			co.addArguments("--headless=new");
+	       co.addArguments("--disable-gpu");
+			//WebDriver driver=new ChromeDriver(co);
+			//driver.get("https://www.google.com/");
+			driver=new ChromeDriver(co);
 		}
 		
 		driver.get(url);

@@ -15,8 +15,7 @@ import io.cucumber.java.Before;
 public class BaseClass {
 
 	public static WebDriver driver;
-//	public static Properties properties;
-	
+
 
 	@Before
 	public static void setUp() {
